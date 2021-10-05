@@ -65,6 +65,7 @@ RUN pip3 install --upgrade \
   jupyterlab-git \
   openpyxl \
   jupyterlab-lsp \
-  dask
+  dask \
+  jedi-language-server
 
 RUN pip3 install git+https://github.com/stevenpawley/Pyspatialml
