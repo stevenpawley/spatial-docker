@@ -8,129 +8,124 @@ EXPOSE 8787
 
 RUN apt-get update && apt-get -y upgrade
 
-RUN apt-get install -y \
-  libspatialindex-dev \
-  openjdk-11-jre \
-  libproj-dev \
-  cmake \
-  libgdal-dev \
-  libgeos++-dev \
-  libgeos-dev \
-  nodejs \
-  npm \
-  libjq-dev \
-  libprotobuf-dev \
-  protobuf-compiler \
-  libharfbuzz-dev \
-  libfribidi-dev
+RUN apt-get install -y libspatialindex-dev
+RUN apt-get install -y openjdk-11-jre
+RUN apt-get install -y libproj-dev
+RUN apt-get install -y cmake
+RUN apt-get install -y libgdal-dev
+RUN apt-get install -y libgeos++-dev
+RUN apt-get install -y libgeos-dev
+RUN apt-get install -y nodejs
+RUN apt-get install -y npm
+RUN apt-get install -y libjq-dev
+RUN apt-get install -y libprotobuf-dev
+RUN apt-get install -y protobuf-compiler
+RUN apt-get install -y libharfbuzz-dev
+RUN apt-get install -y libfribidi-dev
 
-RUN apt-get install -y \
-  saga
+RUN apt-get install -y saga
+RUN apt-get install -y grass-dev
 
-RUN apt-get install -y \
-  libgit2-dev \
-  libcurl4-openssl-dev \
-  libudunits2-dev \
-  libssl-dev \
-  build-essential \
-  libxml2-dev \
-  apt-transport-https \
-  software-properties-common \
-  libmagick++-dev \
-  libomp-dev \
-  libsodium-dev \
-  libopenblas-dev \
-  libglu1-mesa-dev \
-  freeglut3-dev \
-  mesa-common-dev \
-  libgdal-dev \
-  libproj-dev \
-  libgeos-dev \
-  libcairo2-dev \
-  libnetcdf-dev \
-  libnode-dev \
-  libclang-dev \
-  gdebi \
-  r-base
+RUN apt-get install -y libgit2-dev
+RUN apt-get install -y libcurl4-openssl-dev
+RUN apt-get install -y libudunits2-dev
+RUN apt-get install -y libssl-dev
+RUN apt-get install -y build-essential
+RUN apt-get install -y libxml2-dev
+RUN apt-get install -y apt-transport-https
+RUN apt-get install -y software-properties-common
+RUN apt-get install -y libmagick++-dev
+RUN apt-get install -y libomp-dev
+RUN apt-get install -y libsodium-dev
+RUN apt-get install -y libopenblas-dev
+RUN apt-get install -y libglu1-mesa-dev
+RUN apt-get install -y freeglut3-dev
+RUN apt-get install -y mesa-common-dev
+RUN apt-get install -y libcairo2-dev
+RUN apt-get install -y libnetcdf-dev
+RUN apt-get install -y libnode-dev
+RUN apt-get install -y libclang-dev
+RUN apt-get install -y gdebi
+RUN apt-get install -y wget
+RUN apt-get install -y r-base
 
-RUN apt-get install -y \
-  python3-pip
-
+RUN apt-get install -y python3-pip
 RUN pip3 install radian
 
-RUN R -e "install.packages('raster')"
-RUN R -e "install.packages('terra')"
-RUN R -e "install.packages('sf')"
-RUN R -e "install.packages('stars')"
-RUN R -e "install.packages('Rsagacmd')"
-RUN R -e "install.packages('automap')"
-RUN R -e "install.packages('gstat')"
-RUN R -e "install.packages('blockCV')"
-RUN R -e "install.packages('cubelyr')"
-RUN R -e "install.packages('gdalUtilities')"
-RUN R -e "install.packages('nabor')"
-RUN R -e "install.packages('nngeo')"
-RUN R -e "install.packages('smoothr')"
-RUN R -e "install.packages('rmapshaper')"
+RUN R -e "install.packages('parallel')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('httpgd')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('raster')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('terra')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('sf')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('stars')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('Rsagacmd')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('automap')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('gstat')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('blockCV')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('cubelyr')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('gdalUtilities')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('nabor')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('nngeo')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('smoothr')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('rmapshaper')"
 
-RUN R -e "install.packages('tidymodels')"
-RUN R -e "install.packages('discrim')"
-RUN R -e "install.packages('DALEX')"
-RUN R -e "install.packages('earth')"
-RUN R -e "install.packages('kknn')"
-RUN R -e "install.packages('xgboost')"
-RUN R -e "install.packages('glmnet')"
-RUN R -e "install.packages('nnet')"
-RUN R -e "install.packages('ranger')"
-RUN R -e "install.packages('lightgbm')"
-RUN R -e "install.packages('keras')"
-RUN R -e "install.packages('e1071')"
-RUN R -e "install.packages('kernlab')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('tidymodels')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('discrim')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('DALEX')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('earth')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('kknn')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('xgboost')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('glmnet')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('nnet')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('ranger')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('lightgbm')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('keras')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('e1071')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('kernlab')"
 
-RUN R -e "install.packages('tidyverse')"
-RUN R -e "install.packages('furrr')"
-RUN R -e "install.packages('readxl')"
-RUN R -e "install.packages('lubridate')"
-RUN R -e "install.packages('patchwork')"
-RUN R -e "install.packages('ggiraph')"
-RUN R -e "install.packages('ggridges')"
-RUN R -e "install.packages('beeswarm')"
-RUN R -e "install.packages('ggside')"
-RUN R -e "install.packages('pins')"
-RUN R -e "install.packages('plotly')"
-RUN R -e "install.packages('xaringan')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('tidyverse')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('furrr')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('readxl')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('lubridate')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('patchwork')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('ggridges')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('beeswarm')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('ggside')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('pins')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('plotly')"
 
-RUN R -e "install.packages('randomcoloR')"
-RUN R -e "install.packages('ggsci')"
-RUN R -e "install.packages('scico')"
-RUN R -e "install.packages('colorspace')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('randomcoloR')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('ggsci')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('scico')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('colorspace')"
 
-RUN R -e "install.packages('here')"
-RUN R -e "install.packages('glue')"
-RUN R -e "install.packages('usethis')"
-RUN R -e "install.packages('reticulate')"
-RUN R -e "install.packages('languageserver')"
-RUN R -e "install.packages('httr')"
-RUN R -e "install.packages('gt')"
-RUN R -e "install.packages('fs')"
-RUN R -e "install.packages('devtools')"
-RUN R -e "install.packages('roxygen2')"
-RUN R -e "install.packages('rvest')"
-RUN R -e "install.packages('renv')"
-RUN R -e "install.packages('rsconnect')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('here')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('glue')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('usethis')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('reticulate')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('languageserver')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('httr')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('gt')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('fs')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('devtools')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('roxygen2')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('rvest')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('renv')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('rsconnect')"
 
-RUN R -e "install.packages('shiny')"
-RUN R -e "install.packages('shinycssloaders')"
-RUN R -e "install.packages('shinyBS')"
-RUN R -e "install.packages('shinyalert')"
-RUN R -e "install.packages('bslib')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('shiny')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('shinycssloaders')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('shinyBS')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('shinyalert')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('bslib')"
 
-RUN R -e "install.packages('leaflet')"
-RUN R -e "install.packages('leaflet.extras')"
-RUN R -e "install.packages('leafgl')"
-RUN R -e "install.packages('leafem')"
-RUN R -e "install.packages('leafsync')"
-RUN R -e "install.packages('manipulateWidget')"
-RUN R -e "install.packages('ggsn')"
-RUN R -e "install.packages('ggmap')"
-RUN R -e "install.packages('osmdata')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('leaflet')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('leaflet.extras')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('leafgl')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('leafem')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('leafsync')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('manipulateWidget')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('ggsn')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('ggmap')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('osmdata')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('rgrass7')"

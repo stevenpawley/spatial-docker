@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:impish
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV TZ=Etc/UTC
@@ -10,7 +10,7 @@ RUN apt-get update && apt-get -y upgrade
 
 RUN apt-get install -y \
   libspatialindex-dev \
-  openjdk-8-jre \
+  openjdk-11-jre \
   libproj-dev \
   cmake \
   libgdal-dev \
