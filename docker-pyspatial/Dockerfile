@@ -30,10 +30,6 @@ RUN apt-get install -y \
   saga \
   python3-saga
 
-RUN apt-get install -y \
-  npm \
-  nodejs
-
 RUN pip3 install --upgrade \
   pysheds \
   scipy \
