@@ -1,4 +1,4 @@
-FROM ubuntu:impish
+FROM ubuntu:hirsute
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV TZ=Etc/UTC
@@ -82,6 +82,13 @@ RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('lightgbm')"
 RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('keras')"
 RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('e1071')"
 RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('kernlab')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('Cubist')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('FNN')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('mlr3')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('mlr3learners')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('mlr3pipelines')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('mlr3tuning')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('paradox')"
 
 RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('tidyverse')"
 RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('furrr')"
@@ -128,4 +135,3 @@ RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('manipulateWi
 RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('ggsn')"
 RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('ggmap')"
 RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('osmdata')"
-RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('rgrass7')"
