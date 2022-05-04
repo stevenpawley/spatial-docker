@@ -54,13 +54,14 @@ RUN pip3 install radian
 
 RUN R -e "install.packages('parallel')"
 RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('httpgd')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages(c('odbc', 'mdbr', 'skimr', 'doFuture'))"
 RUN R -e "options(Ncpus=parallel::detectCores()); install.packages(c('terra', 'raster', 'sf', 'stars', 'Rsagacmd'))"
 RUN R -e "options(Ncpus=parallel::detectCores()); install.packages(c('automap', 'gstat', 'blockCV', 'cubelyr', 'gdalUtilities'))"
 RUN R -e "options(Ncpus=parallel::detectCores()); install.packages(c('nabor', 'nngeo', 'mmand'))"
 RUN R -e "options(Ncpus=parallel::detectCores()); install.packages(c('smoothr', 'rmapshaper'))"
 
 RUN R -e "options(Ncpus=parallel::detectCores()); install.packages(c('targets', 'tarchetypes', 'AzureStor'))"
-RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('tidymodels')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages(c('tidymodels', 'textrecipes'))"
 RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('discrim')"
 RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('DALEX')"
 RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('earth')"
