@@ -61,9 +61,8 @@ RUN R -e "options(Ncpus=parallel::detectCores()); install.packages(c('nabor', 'n
 RUN R -e "options(Ncpus=parallel::detectCores()); install.packages(c('smoothr', 'rmapshaper'))"
 
 RUN R -e "options(Ncpus=parallel::detectCores()); install.packages(c('targets', 'tarchetypes', 'AzureStor'))"
-RUN R -e "options(Ncpus=parallel::detectCores()); install.packages(c('tidymodels', 'textrecipes'))"
-RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('discrim')"
-RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('DALEX')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages(c('tidymodels', 'textrecipes', 'discrim', 'baguette'))"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages(c('DALEX', 'DALEXtra'))"
 RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('earth')"
 RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('kknn')"
 RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('xgboost')"
