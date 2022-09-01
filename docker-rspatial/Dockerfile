@@ -48,6 +48,7 @@ RUN apt-get install -y libclang-dev
 RUN apt-get install -y gdebi
 RUN apt-get install -y wget
 RUN apt-get install -y r-base
+RUN apt-get nvidia-cuda-toolkit
 
 RUN apt-get install -y python3-pip
 RUN pip3 install radian
