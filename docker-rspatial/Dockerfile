@@ -48,7 +48,7 @@ RUN apt-get install -y libclang-dev
 RUN apt-get install -y gdebi
 RUN apt-get install -y wget
 RUN apt-get install -y r-base
-RUN apt-get nvidia-cuda-toolkit
+RUN apt-get install -y nvidia-cuda-toolkit
 
 RUN apt-get install -y python3-pip
 RUN pip3 install radian
@@ -94,7 +94,7 @@ RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('future')"
 RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('tidyverse')"
 RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('furrr')"
 RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('readxl')"
-RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('lubridate', 'clock')"
+RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('lubridate')"
 RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('patchwork')"
 RUN R -e "options(Ncpus=parallel::detectCores()); install.packages(c('beeswarm', 'ggdist', 'ggside', 'ggridges'))"
 RUN R -e "options(Ncpus=parallel::detectCores()); install.packages('pins')"
