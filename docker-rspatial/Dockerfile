@@ -1,11 +1,5 @@
 FROM rocker/rstudio
 
-# ENV DEBIAN_FRONTEND noninteractive
-# ENV TZ=Etc/UTC
-# RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-
-# EXPOSE 8787
-
 RUN apt-get update && apt-get -y upgrade
 
 RUN apt-get install -y libspatialindex-dev
