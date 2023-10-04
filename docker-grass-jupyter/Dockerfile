@@ -35,6 +35,7 @@ RUN pip install jupyterlab-code-formatter --break-system-packages
 RUN pip install jupyterlab-git --break-system-packages
 RUN pip install jupyterlab-github --break-system-packages
 RUN pip install jupyterlab_materialdarker --break-system-packages
+RUN pip install pyarrow pins adlfs --break-system-packages
 
 # setup grassdata
 WORKDIR /home/ubuntu
