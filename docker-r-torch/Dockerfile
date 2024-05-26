@@ -41,5 +41,7 @@ RUN R -e "install.packages('languageserver')"
 RUN R -e "install.packages('jsonlite')"
 RUN R -e "install.packages('httpgd')"
 
+RUN R -e "torch::install_torch()"
+
 # start R when container starts
 CMD ["R"]
