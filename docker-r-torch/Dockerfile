@@ -46,4 +46,4 @@ RUN R -e "torch::install_torch()"
 # start R when container starts
 CMD ["R"]
 
-# run with docker run -it --runtime=nvidia --gpus all rtorch (needs cuda container installed)
+# docker run -it --volume /home/steven-pawley/:/home/project --runtime=nvidia --gpus all rtorch
