@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.6.1-base-ubuntu20.04
+FROM nvidia/cuda:11.7.1-devel-ubuntu20.04
 
 # set timezone and location
 ENV TZ=America/Edmonton
@@ -45,3 +45,5 @@ RUN R -e "torch::install_torch()"
 
 # start R when container starts
 CMD ["R"]
+
+# run with docker run -it --runtime=nvidia --gpus all rtorch (needs cuda container installed)
