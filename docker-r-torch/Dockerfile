@@ -43,7 +43,4 @@ RUN R -e "install.packages('httpgd')"
 
 RUN R -e "torch::install_torch()"
 
-# start R when container starts
-CMD ["R"]
-
-# docker run -it --volume /home/steven-pawley/:/home/project --runtime=nvidia --gpus all rtorch
+# docker run -it --volume "G:\My Drive\Courses\Deep learning with R torch":/home/project --runtime=nvidia --gpus all rtorch
