@@ -40,10 +40,16 @@ RUN R -e "install.packages('luz')"
 RUN R -e "install.packages('languageserver')"
 RUN R -e "install.packages('jsonlite')"
 RUN R -e "install.packages('httpgd')"
-
 RUN R -e "torch::install_torch()"
+
+# activate virtual environment in the container
+RUN apt-get install python3-pip python3-venv -y
+RUN python3 -m venv /home/steven/.virtualenvs/base
+ENV VIRTUAL_ENV /home/steven/.virtualenvs/base
+ENV PATH home/steven/.virtualenvs/base/bin/:$PATH
+RUN pip install radian
 
 # start R when container starts
 CMD ["R"]
 
-# docker run -it --volume /home/steven-pawley/:/home/project --runtime=nvidia --gpus all rtorch
+# docker run -it --volume /home/steven/Projects:/home/project --gpus all dockerrtorch
