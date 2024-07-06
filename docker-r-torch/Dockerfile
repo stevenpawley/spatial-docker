@@ -40,7 +40,6 @@ RUN R -e "install.packages('luz')"
 RUN R -e "install.packages('languageserver')"
 RUN R -e "install.packages('jsonlite')"
 RUN R -e "install.packages('httpgd')"
-
 RUN R -e "torch::install_torch()"
 
 # docker run -it --volume "G:\My Drive\Courses\Deep learning with R torch":/home/project --runtime=nvidia --gpus all rtorch
