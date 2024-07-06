@@ -42,4 +42,11 @@ RUN R -e "install.packages('jsonlite')"
 RUN R -e "install.packages('httpgd')"
 RUN R -e "torch::install_torch()"
 
-# docker run -it --volume "G:\My Drive\Courses\Deep learning with R torch":/home/project --runtime=nvidia --gpus all rtorch
+# create virtualenv for radian
+RUN apt install -y python3-venv python3-pip
+RUN python3 -m venv ~/.virtualenvs/base
+ENV VIRTUAL_ENV ~/.virtualenvs/base
+ENV PATH ~/.virtualenvs/base/bin:$PATH
+RUN pip install radian
+
+# docker run -it --volume C:/Users/steve/Projects:/home/Projects --gpus all rtorch
