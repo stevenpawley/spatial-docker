@@ -36,6 +36,13 @@ RUN apt install -y --no-install-recommends r-base
 # install torch
 RUN R -e "install.packages('torch')"
 RUN R -e "install.packages('torchvision')"
+RUN R -e "install.packages('torchaudio')"
+RUN R -e "install.packages('torchdatasets')"
+RUN R -e "install.packages('dplyr')"
+RUN R -e "install.packages('data.table')"
+RUN R -e "install.packages('ggplot2')"
+RUN R -e "install.packages('pins')"
+
 RUN R -e "install.packages('luz')"
 RUN R -e "install.packages('languageserver')"
 RUN R -e "install.packages('jsonlite')"
