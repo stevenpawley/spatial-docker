@@ -24,23 +24,23 @@ RUN apt-get install -y grass-dev
 RUN apt-get install -y saga
 
 ENV CONDA_DIR /opt/conda
-RUN wget "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
-RUN bash Mambaforge-$(uname)-$(uname -m).sh -b -p /opt/conda
+RUN wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+RUN bash Miniforge3-$(uname)-$(uname -m).sh -b -p /opt/conda
 
 ENV PATH=$CONDA_DIR/bin:$PATH
 
 # Make RUN commands use the new environment:
-RUN mamba create --name geospatial
+RUN conda create --name geospatial
 SHELL ["conda", "run", "-n", "geospatial", "/bin/bash", "-c"]
 
-RUN mamba install black tqdm jupyterlab jupyterlab-git jupyterlab-lsp jedi-language-server
-RUN mamba install rasterio geopandas pandas seaborn
-RUN mamba install scikit-learn
-RUN mamba install scikit-image
-RUN mamba install xarray
-RUN mamba install dask
-RUN mamba install openpyxl
-RUN mamba install sentinelsat
+RUN conda install black tqdm jupyterlab jupyterlab-git jupyterlab-lsp jedi-language-server
+RUN conda install rasterio geopandas pandas seaborn
+RUN conda install scikit-learn
+RUN conda install scikit-image
+RUN conda install xarray
+RUN conda install dask
+RUN conda install openpyxl
+RUN conda install sentinelsat
 RUN pip install pyhere
 RUN pip install grass-session
 RUN pip install git+https://github.com/stevenpawley/Pyspatialml
