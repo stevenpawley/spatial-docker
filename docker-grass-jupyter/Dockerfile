@@ -1,9 +1,12 @@
-FROM ubuntu:mantic
+FROM ubuntu:24.04
 
 RUN apt-get update && apt-get -y upgrade
 
 # gis packages
-RUN apt-get install -y grass-dev saga
+RUN apt-get install -y \
+    grass-dev \
+    saga \
+    libgdal-grass
 
 RUN apt-get install -y \
     gcc \
