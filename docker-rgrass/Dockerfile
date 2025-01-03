@@ -82,10 +82,19 @@ RUN apt-get install -y \
 
 # setup R
 RUN apt install -y r-base-dev
-RUN wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.6.39/quarto-1.6.39-linux-arm64.deb
-RUN dpkg -i quarto-1.6.39-linux-arm64.deb
-RUN rm quarto-1.6.39-linux-arm64.deb
 
+# install amd64 or arm versions of quarto depending on architecture
+RUN ARCH=$(dpkg --print-architecture) && \
+    if [ "$ARCH" = "amd64" ]; then \
+        curl -o quarto.deb -L "https://github.com/quarto-dev/quarto-cli/releases/download/v1.6.39/quarto-1.6.39-linux-amd64.deb"; \
+        elif [ "$ARCH" = "arm64" ]; then \
+        curl -o quarto.deb -L "https://github.com/quarto-dev/quarto-cli/releases/download/v1.6.39/quarto-1.6.39-linux-arm64.deb"; \
+    fi
+
+RUN dpkg -i quarto.deb && rm quarto.deb
+
+# install R vscode support packages
+RUN echo 'options(Ncpus=parallel::detectCores())' >> ~/.Rprofile
 RUN R -e "install.packages(c('devtools', 'rcmdcheck', 'httpgd, httpuv', 'languageserver', 'jsonlite', 'rlang', 'reticulate'))"
 RUN R -e "devtools::install_github('osgeo/rgrass')"
 
